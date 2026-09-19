@@ -35,9 +35,9 @@ window.addEventListener("DOMContentLoaded", () => {
 	};
 
 	const calc = () => {
-		const query1 = e.query1.value.split(",");
-		const query2 = e.query2.value.split(",");
-		const arrays = e.target.value.replaceAll("\r\n", "\n").replaceAll("\r", "\n").split("\n").map((line) => line.split(","));
+		const query1 = e.query1.value === "" ? [] : e.query1.value.split(",");
+		const query2 = e.query2.value === "" ? [] : e.query2.value.split(",");
+		const arrays = e.target.value.replaceAll("\r\n", "\n").replaceAll("\r", "\n").split("\n").filter((line) => line !== "").map((line) => line.split(","));
 		const lastMatch = Array(arrays.length).fill(-1);
 		const matches1 = [];
 		const matches2 = [];
